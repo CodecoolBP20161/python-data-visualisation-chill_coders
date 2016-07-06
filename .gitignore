@@ -101,3 +101,6 @@ ENV/
 
 # Sample image
 sample-out.png
+
+# Simple .txt file which includes personal datas
+db_config.txt

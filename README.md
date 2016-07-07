@@ -1,4 +1,4 @@
-## Before using ChillCoders' PicGenerator,
+<!-- ## Before using ChillCoders' PicGenerator, -->
     1. make a simple text file,
     2. save it as 'db_config.txt',
     3. put it into the same folder, where the application runs.

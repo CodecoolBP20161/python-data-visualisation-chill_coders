@@ -1,3 +1,5 @@
+from operator import Operator
+from normalisation import Normalisation
 # Query 1: clients according to intensity (number of projects)
 """SELECT company_name, replace(main_color, '#', '') as short_hex_color FROM project WHERE main_color IS NOT NULL;"""
 
@@ -30,9 +32,6 @@ ORDER BY status DESC;"""
 
 # MENU ----------------------------------------------------------------------------------------------------------------
 
-def choose_query(query):
-    pass
-
 print("""--- ChillCoders\' PicGenerator is ready to be used! ---
 
 Choose a number from 1 to 5 create a WordCloud!
@@ -48,17 +47,22 @@ Choose a number from 1 to 5 create a WordCloud!
 number = input('Choosen number is: ')
 
 while True:
-    try:
         if number == '1':
-            # függvénymeghívás
-            # break()
-            # KISZERVEZNI!
+            print(Operator.operator_main("""SELECT company_name, replace(main_color, '#', '') as short_hex_color FROM project WHERE main_color IS NOT NULL;""", "q1"))
+            exit()
         if number == '2':
-
+            print(Normalisation.normalize_data_q2((Operator.operator_main("""SELECT name, budget_value, budget_currency, REPLACE(main_color, '#', '') AS main_color FROM project WHERE name IS NOT NULL AND main_color IS NOT NULL;""", "q4"))))
+            exit()
         if number == '3':
-
+            print(Normalisation.normalize_data_q3(Operator.operator_main("""SELECT name, duedate, replace(main_color, '#', '') AS main_color FROM project WHERE company_name = 'Eadel' AND name IS NOT NULL ORDER BY duedate DESC;""", "")))
+            exit()
         if number == '4':
-
+            print(Operator.operator_main("""SELECT company_hq, budget_value, replace(main_color, '#', '') AS main_color FROM project WHERE budget_currency = 'GBP' AND company_hq IS NOT NULL AND main_color IS NOT NULL ORDER BY CAST(budget_value AS FLOAT) DESC;""",""))
+            exit()
         if number == '5':
-    except ValueError:
-        print('Invalid input! Try again!')
+            print(Normalisation.normalize_data_q5(Operator.operator_main("""SELECT name, status, REPLACE(main_color, '#', '') AS main_color FROM project WHERE name IS NOT NULL AND main_color IS NOT NULL ORDER BY status DESC;""","")))
+            exit()
+        else:
+            raise ValueError('Invalid input!')
+            exit()
+

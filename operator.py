@@ -13,17 +13,11 @@ class Operator():
             wordslist.extend([(words[0], words[1])])
         if order == "":
             z = Operator.colors(wordslist)
-            print(z)
         if order == "q1":
             a = Operator.q1_colors(wordslist)
             b = Operator.q1_coloravg1(a)
             c = Operator.q1_coloravg2(b)
-            print(c)
-       # if order = ""
-            # for element in a:
-            #     element[1] = b
-            #     newlist.append(element)
-            # return Operator.give_size(newlist)
+
 
     @classmethod
     def colors(cls, wordlist):
@@ -101,34 +95,6 @@ class Operator():
             element.insert(1, size[x])
             x += 1
         return finallist
-
-
-    @classmethod
-    def give_size(cls, wordlist):
-        a = len(wordlist) / 100
-        for element in wordlist[0:math.ceil(a*1)]:
-            element.append(10)
-        for element in wordlist[math.ceil(a*2):math.ceil(a*6)]:
-            element.append(9)
-        for element in wordlist[math.ceil(a*6):math.ceil(a*10)]:
-            element.append(8)
-        for element in wordlist[math.ceil(a*10):math.ceil(a*20)]:
-            element.append(7)
-        for element in wordlist[math.ceil(a*20):math.ceil(a*60)]:
-            element.append(6)
-        for element in wordlist[math.ceil(a*60):math.ceil(a*70)]:
-            element.append(5)
-        for element in wordlist[math.ceil(a*70):math.ceil(a*70)]:
-            element.append(4)
-        for element in wordlist[math.ceil(a*70):math.ceil(a*80)]:
-            element.append(3)
-        for element in wordlist[math.ceil(a*80):math.ceil(a*90)]:
-            element.append(2)
-        for element in wordlist[math.ceil(a*90):math.ceil(a*100)]:
-            element.append(1)
-        return wordlist
-
-
 
 Operator.operator_main("")
 

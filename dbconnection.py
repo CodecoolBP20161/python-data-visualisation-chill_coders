@@ -1,6 +1,8 @@
 import psycopg2
 
+
 class DbConnection:
+    """ Reads in datas from database according to queries. """
 
     @staticmethod
     def open_file(file_name):

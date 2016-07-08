@@ -1,5 +1,6 @@
 from operator import Operator
 from normalisation import Normalisation
+
 # Query 1: clients according to intensity (number of projects)
 """SELECT company_name, replace(main_color, '#', '') as short_hex_color FROM project WHERE main_color IS NOT NULL;"""
 
@@ -65,4 +66,3 @@ while True:
         else:
             raise ValueError('Invalid input!')
             exit()
-

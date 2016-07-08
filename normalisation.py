@@ -3,6 +3,7 @@ import datetime
 
 
 class Normalisation(object):
+    """ Normalizes incoming data if it is needed (per queries). """
 
     @staticmethod
     def normalize_data_q2(updated_data):
@@ -33,11 +34,11 @@ class Normalisation(object):
             if row[1] == 1:
                 counter_1 += 1
             if row[1] == 2:
-                counter_2 +=1
+                counter_2 += 1
             if row[1] == 3:
-                counter_3 +=1
+                counter_3 += 1
             if row[1] == 4:
-                counter_4 +=1
+                counter_4 += 1
         updated_data = [
                         ['under order', counter_1, list_of_colors[0]],
                         ['development', counter_2, list_of_colors[1]],

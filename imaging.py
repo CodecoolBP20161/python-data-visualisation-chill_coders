@@ -4,6 +4,7 @@ from PIL import ImageDraw
 
 
 class Imaging():
+    """ Creates word-cloud. """
 
     @staticmethod
     def check_space(all_coords, current_coords, word_size):

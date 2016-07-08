@@ -1,16 +1,17 @@
 from dbconnection import DbConnection
 
+
 class Operator():
+    """ Optimises parameters. """
 
     newlist = []
     newlist2 = []
 
     @staticmethod
-    def operator_main(query, order = ""):
+    def operator_main(query, order=""):
         wordslist = []
         for words in DbConnection.runSql(query):
             wordslist.append(words)
-                #([(words[0], words[1], words[2])])
         if order == "":
             return Operator.colors(wordslist)
         if order == "q1":
@@ -124,4 +125,3 @@ class Operator():
             element.insert(1, size[x])
             x += 1
         return finallist
-

@@ -98,7 +98,7 @@ class Imaging():
             Imaging.toggle_coords(all_coords, [x-size[0], y-size[1]], size)
         else:
             size2 = [size[1], size[0]]
-            txt_image = Image.new("RGB", (size[0], size[1]), "red")
+            txt_image = Image.new("RGB", (size[0], size[1]), "white")
             txt_draw = ImageDraw.Draw(txt_image)
             txt_draw.text((0, 0), word, font=fnt, **text_options)
             if typee == 2:

@@ -104,3 +104,9 @@ sample-out.png
 
 # Simple .txt file which includes personal datas
 db_config.txt
+
+# Sample generator file
+sample-image-generator.py
+
+# Generated test picture
+testpic.png

@@ -9,34 +9,34 @@ class Operator():
 
     @staticmethod
     def operator_main(query, order=""):
-        wordslist = []
-        for words in DbConnection.runSql(query):
-            wordslist.append(words)
+        wordslist = [word for word in DbConnection.runSql(query)]
         if order == "":
             return Operator.colors(wordslist)
         if order == "q1":
             a = Operator.q1_colors(wordslist)
             b = Operator.q1_coloravg1(a)
             c = Operator.q1_coloravg2(b)
-            print(Operator.getsizeq1(c))
+            return Operator.getsize(c)
         if order == "q4":
             return Operator.q4_colors(wordslist)
 
     @staticmethod
-    def getsizeq1(data_list):
-        seconds = []
-        for data in data_list:
-            seconds.append(data[1])
-        a_max = seconds[0]
-        a_min = seconds[-1]
-        seconds_newsize = []
-        for number in seconds:
-            seconds_newsize.append((number * 9 / (a_max - a_min)) + 1)
-        x = 0
-        print(seconds_newsize)
-        for data in data_list:
-            data[1] = seconds_newsize[x]
-            x += 1
+    def getsize(data_list):
+        from math import ceil
+
+        number_of_datas = len(data_list)
+        data_list = sorted(data_list, key=lambda x: x[1], reverse=True)
+
+        a_max = max([data[1] for data in data_list])
+        a_min = min([data[1] for data in data_list])
+
+        for element in data_list:
+            element[1] = ceil(float(element[1]) * (1 / a_max) * 10)
+
+        for element in data_list:
+            if element[1] == 0:
+                element[1] += 1
+
         return data_list
 
     @classmethod

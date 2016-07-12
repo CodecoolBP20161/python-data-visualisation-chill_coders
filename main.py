@@ -4,14 +4,9 @@ from normalisation import Normalisation
 # Query 1: clients according to intensity (number of projects)
 """SELECT company_name, replace(main_color, '#', '') as short_hex_color FROM project WHERE main_color IS NOT NULL;"""
 
-# average color nem jó! ide külön metódust kell írni, ami azt a tuple-listát továbbítja,
-# amivel a továbbiakban lehet dolgozni! RETURN!
-
 # Query 2: projects according to value in the same currency
 """SELECT name, budget_value, budget_currency, REPLACE(main_color, '#', '') AS main_color
 FROM project WHERE name IS NOT NULL AND main_color IS NOT NULL;"""
-
-# átváltás egységes currency-ba! RETURN new_list of tuples
 
 # Query 3: Easel's projects (highest number of projects) according to duedate
 """SELECT name, duedate, replace(main_color, '#', '') AS main_color FROM project
@@ -27,8 +22,6 @@ ORDER BY CAST(budget_value AS FLOAT) DESC;"""
 """SELECT name, status, REPLACE(main_color, '#', '') AS main_color FROM project
 WHERE name IS NOT NULL AND main_color IS NOT NULL
 ORDER BY status DESC;"""
-
-# OPTIMALIZÁLÁS!!!! STATICMETHODOK
 
 
 # MENU ----------------------------------------------------------------------------------------------------------------

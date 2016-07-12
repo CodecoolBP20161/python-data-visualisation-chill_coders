@@ -1,5 +1,6 @@
-from operator import Operator
+from engine import Engine
 from normalisation import Normalisation
+from imaging import Imaging
 
 # Query 1: clients according to intensity (number of projects)
 """SELECT company_name, replace(main_color, '#', '') as short_hex_color FROM project WHERE main_color IS NOT NULL;"""
@@ -46,7 +47,7 @@ while True:
                 FROM project
                 WHERE main_color IS NOT NULL;"""
         order = "q1"
-        print(Operator.operator_main(q1, order))
+        Imaging.create_image(Engine.engine_main(q1, order), 'pic1.png')
         exit()
 
     if number == '2':
@@ -55,8 +56,8 @@ while True:
                 WHERE name IS NOT NULL
                 AND main_color IS NOT NULL;"""
         order = "q4"
-        normalised_incoming_datalist = Normalisation.normalize_data_q2(Operator.operator_main(q2, order))
-        print(Operator.getsize(normalised_incoming_datalist))
+        normalised_incoming_datalist = Normalisation.normalize_data_q2(Engine.engine_main(q2, order))
+        Imaging.create_image(Engine.getsize(normalised_incoming_datalist)[:20], 'pic2.png')
         exit()
 
     if number == '3':
@@ -65,8 +66,8 @@ while True:
                 WHERE company_name = 'Eadel'
                 AND name IS NOT NULL ORDER BY duedate DESC;"""
         order = ""
-        normalised_incoming_datalist = Normalisation.normalize_data_q3(Operator.operator_main(q3, order))
-        print(Operator.getsize(normalised_incoming_datalist))
+        normalised_incoming_datalist = Normalisation.normalize_data_q3(Engine.engine_main(q3, order))
+        Imaging.create_image(Engine.getsize(normalised_incoming_datalist), 'pic3.png')
         exit()
 
     if number == '4':
@@ -76,8 +77,8 @@ while True:
                 AND company_hq IS NOT NULL
                 AND main_color IS NOT NULL ORDER BY CAST(budget_value AS FLOAT) DESC;"""
         order = ""
-        normalised_incoming_datalist = Operator.operator_main(q4, order)
-        print(Operator.getsize(normalised_incoming_datalist))
+        normalised_incoming_datalist = Engine.engine_main(q4, order)
+        Imaging.create_image(Engine.getsize(normalised_incoming_datalist), 'pic4.png')
         exit()
 
     if number == '5':
@@ -86,8 +87,8 @@ while True:
                 WHERE name IS NOT NULL
                 AND main_color IS NOT NULL ORDER BY status DESC;"""
         order = ""
-        normalised_incoming_datalist = Normalisation.normalize_data_q5(Operator.operator_main(q5, order))
-        print(Operator.getsize(normalised_incoming_datalist))
+        normalised_incoming_datalist = Normalisation.normalize_data_q5(Engine.engine_main(q5, order))
+        Imaging.create_image(Engine.getsize(normalised_incoming_datalist), 'pic5.png')
         exit()
 
     else:

@@ -13,7 +13,7 @@ class DbConnection:
     @staticmethod
     def runSql(query):
         try:
-            connect_str = DbConnection.open_file('.git/db_config.txt')
+            connect_str = DbConnection.open_file('db_config.txt')
             conn = psycopg2.connect(connect_str)
             conn.autocommit = True
             cursor = conn.cursor()
